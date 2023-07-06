@@ -1,0 +1,30 @@
+EJERCICIO - Crear el micro-servicio-carrito
+
+puerto: 8003
+nombre de app: servicio-carrito
+
+debe estar registrado en eureka server
+
+
+en es.indra.models crear la clase Carrito:
+	String id
+	String usuario
+	List<Item> contenido
+	double importe
+
+
+en es.indra.persistence    CarritoDAO con MongoDB
+
+
+en es.indra.service :
+	Interface  CarritoService:
+	       Carrito crear(String usuario)
+	       void agregarItem(Long id, Integer cantidad, String usuario)
+	       Carrito buscar(String usuario)
+	       voi eliminarItem(Long id, String usuario)
+
+	Clase CarritoServiceImpl que implementa la interface
+			Peticiones a otro servico a traves de Feign
+
+
+en es.indra.controllers    crear CarritoController 
